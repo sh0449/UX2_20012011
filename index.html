@@ -1,90 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<style>
-  /* 전체 GUI의 스타일 */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* 전체 GUI의 스타일 */
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
 
-  body {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100%;
-  }
-  /* 헤더의 스타일 */
-  .header {
-    width: 375px;
-    height: 80px;
-    background-color: black;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 12pt;
-  }
-  /* 컨테이너의 스타일 */
-  .container {
-    margin-top: 30px;
-    display: grid;
-    grid-template-columns: repeat(4, 50px);
-    grid-template-rows: repeat(6, 50px);
-    gap: 40px; /* 간격 설정 */
-    width: 375px;
-    height: 760px;
-    justify-content: center;
-  }
-  /* 각 버튼 세트의 스타일 */
-  .button-set {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  /* 각 버튼의 스타일 */
-  .button {
-    width: 60px;
-    height: 60px;
-    margin-top: 0px;
-    padding: 0;
-    border: 0;
-    cursor: pointer;
-    position: relative; /* 버튼 내부 요소의 위치를 상대적으로 설정 */
-  }
-  /* 숫자 스타일 */
-  .number {
-    display: block;
-    font-size: 100%; /* 상속된 폰트 크기를 사용하도록 설정 */
-    margin-top: 62px; /* 버튼과 숫자 사이의 간격을 조절 */
-    text-align: center; /* 텍스트 중앙 정렬 */
-  }
+    /* 헤더의 스타일 */
+    .header {
+      width: 100%;
+      height: 60px;
+      background-color: black;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14pt;
+    }
 
-  /* 정보 가운데 정렬 */
-  .info-display {
-    margin-top: 140px;
-    text-align: center;
-    line-height: 0.4;
-    font-size: 10pt;
-  }
+    /* 컨테이너의 스타일 */
+    .container {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(4, 50px);
+      grid-template-rows: repeat(6, 50px);
+      gap: 50px; /* 간격 설정 */
+      width: 100%;
+      height: 400px;
+      justify-content: center;
+    }
 
-  /* 클릭시 버튼 정보 */
-  .click-info {
-    position: bottom;
-    bottom: 10px;
-    width: 100%;
-    text-align: center;
-  }
+    /* 각 버튼 세트의 스타일 */
+    .button-set {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
 
-  .viewer {
-    width: 100vw;
-    max-width: 100px;
-    height: 100vh;
-    overflow: hidden;
-    margin: 0 auto;
-}
+    /* 각 버튼의 스타일 */
+    .button {
+      width: 60px;
+      height: 60px;
+      margin-top: 0px;
+      padding: 0;
+      border: 0;
+      cursor: pointer;
+      position: relative; /* 버튼 내부 요소의 위치를 상대적으로 설정 */
+    }
 
-</style>
+    /* 숫자 스타일 */
+    .number {
+      display: block;
+      font-size: 100%; /* 상속된 폰트 크기를 사용하도록 설정 */
+      margin-top: 62px; /* 버튼과 숫자 사이의 간격을 조절 */
+      text-align: center; /* 텍스트 중앙 정렬 */
+    }
+
+    /* 정보 가운데 정렬 */
+    .info-display {
+      margin-top: 210px;
+      text-align: center;
+      line-height: 0.4;
+      font-size: 10pt;
+    }
+
+    /* 클릭시 버튼 정보 */
+    .click-info {
+      position: bottom;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
   <div class="header" id="header"><p id="header-number">를 찾아주세요!</p></div>
@@ -140,7 +138,7 @@
         // 숨겨진 숫자를 버튼에 추가
         const number = document.createElement('span');
         number.className = 'number';
-        number.style.fontSize = `${targetNumber}px`
+        number.style.fontSize = `${targetNumber}pt`
         number.textContent = randomNumber;
         button.appendChild(number); // 버튼 내부에 숫자 추가
         buttonSet.appendChild(button);
